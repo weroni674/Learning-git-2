@@ -1,0 +1,10 @@
+.body h2 {
+	color: purple;
+	font-size: 40px;
+
+}
+
+.body h6 {
+	color: black;
+	font-size: 20px;
+}
