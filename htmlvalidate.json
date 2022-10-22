@@ -1,0 +1,30 @@
+{
+  "extends": ["html-validate:recommended"]
+}
+{
+    "rules": {
+      "some-rules": "severity",
+      "other-rule": ["severity", { "option": true }]
+    }
+}
+{
+    "elements": [
+      "html5",
+      "my-npm-package",
+      "./file",
+      {
+        /* inline metadata */
+      }
+    ]
+}
+{
+    "plugins": ["my-fancy-plugin", "./local-plugin"]
+}
+{
+    "transform": {
+      "^.*\\.vue$": "html-validate-vue"
+    }
+}
+{
+    "root": true
+}

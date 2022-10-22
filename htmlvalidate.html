@@ -1,0 +1,39 @@
+<!-- [html-validate-ACTION OPTIONS -- COMMENT] -->
+<!-- [html-validate-disable-next void-style, deprecated -- disable both rules] -->
+<!-- [html-validate-disable-next deprecated -- justification for disabling] -->
+<blink>Blinking text</blink>
+<!-- [html-validate-disable-next deprecated: justification for disabling] -->
+<blink>Blinking text</blink>
+<!-- [html-validate-enable element-permitted-content] -->
+<!-- [html-validate-disable deprecated] -->
+<!-- [html-validate-disable-block attribute-allowed-values] -->
+<div>
+  <button type="foo">Invalid button</button>
+  <!-- [html-validate-disable-block attribute-allowed-values -- will be disabled until the parent div is closed] -->
+  <button type="bar">Invalid but ignored</button>
+  <button type="baz">Still ignored</button>
+</div>
+<button type="spam">Another invalid</button>
+error: Attribute "type" has invalid value "foo" (attribute-allowed-values) at inline:2:17:
+  1 | <div>
+> 2 |   <button type="foo">Invalid button</button>
+    |                 ^^^
+  3 |   <!-- [html-validate-disable-block attribute-allowed-values -- will be disabled until the parent div is closed] -->
+  4 |   <button type="bar">Invalid but ignored</button>
+  5 |   <button type="baz">Still ignored</button>
+
+
+error: Attribute "type" has invalid value "spam" (attribute-allowed-values) at inline:7:15:
+  5 |   <button type="baz">Still ignored</button>
+  6 | </div>
+> 7 | <button type="spam">Another invalid</button>
+    |               ^^^^
+<!-- [html-validate-disable-next deprecated] -->
+<!-- [html-validate-disable-next deprecated -- the next occurrence will not trigger an error] -->
+<blink>This will not trigger an error</blink>
+<blink>But this line will</blink>
+error: <blink> is deprecated (deprecated) at inline:3:2:
+  1 | <!-- [html-validate-disable-next deprecated -- the next occurrence will not trigger an error] -->
+  2 | <blink>This will not trigger an error</blink>
+> 3 | <blink>But this line will</blink>
+    |  ^^^^^
